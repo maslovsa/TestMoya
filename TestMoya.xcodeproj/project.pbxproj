@@ -13,6 +13,9 @@
 		8FD8E0C620B05CB800983BF9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FD8E0C520B05CB800983BF9 /* Assets.xcassets */; };
 		8FD8E0C920B05CB800983BF9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FD8E0C720B05CB800983BF9 /* LaunchScreen.storyboard */; };
 		8FD8E0D420B05CB800983BF9 /* TestMoyaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD8E0D320B05CB800983BF9 /* TestMoyaTests.swift */; };
+		8FD8E0E220B0688000983BF9 /* Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FD8E0DF20B0687F00983BF9 /* Moya.framework */; };
+		8FD8E0E320B0688000983BF9 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FD8E0E020B0687F00983BF9 /* Result.framework */; };
+		8FD8E0E420B0688000983BF9 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FD8E0E120B0687F00983BF9 /* Alamofire.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,9 @@
 		8FD8E0CF20B05CB800983BF9 /* TestMoyaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestMoyaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FD8E0D320B05CB800983BF9 /* TestMoyaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMoyaTests.swift; sourceTree = "<group>"; };
 		8FD8E0D520B05CB800983BF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8FD8E0DF20B0687F00983BF9 /* Moya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Moya.framework; path = Carthage/Build/iOS/Moya.framework; sourceTree = SOURCE_ROOT; };
+		8FD8E0E020B0687F00983BF9 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = SOURCE_ROOT; };
+		8FD8E0E120B0687F00983BF9 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +49,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FD8E0E220B0688000983BF9 /* Moya.framework in Frameworks */,
+				8FD8E0E420B0688000983BF9 /* Alamofire.framework in Frameworks */,
+				8FD8E0E320B0688000983BF9 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +68,7 @@
 		8FD8E0B220B05CB600983BF9 = {
 			isa = PBXGroup;
 			children = (
+				8FD8E0DE20B0680700983BF9 /* Frameworks */,
 				8FD8E0BD20B05CB600983BF9 /* TestMoya */,
 				8FD8E0D220B05CB800983BF9 /* TestMoyaTests */,
 				8FD8E0BC20B05CB600983BF9 /* Products */,
@@ -96,6 +106,16 @@
 			path = TestMoyaTests;
 			sourceTree = "<group>";
 		};
+		8FD8E0DE20B0680700983BF9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8FD8E0E120B0687F00983BF9 /* Alamofire.framework */,
+				8FD8E0DF20B0687F00983BF9 /* Moya.framework */,
+				8FD8E0E020B0687F00983BF9 /* Result.framework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,6 +126,7 @@
 				8FD8E0B720B05CB600983BF9 /* Sources */,
 				8FD8E0B820B05CB600983BF9 /* Frameworks */,
 				8FD8E0B920B05CB600983BF9 /* Resources */,
+				8FD8E0E520B068BA00983BF9 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -191,6 +212,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8FD8E0E520B068BA00983BF9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Moya.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Moya.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Result.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8FD8E0B720B05CB600983BF9 /* Sources */ = {
@@ -360,6 +403,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3S7B839VYS;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TestMoya/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -378,6 +425,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3S7B839VYS;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TestMoya/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
