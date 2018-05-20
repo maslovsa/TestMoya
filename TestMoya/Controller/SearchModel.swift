@@ -7,6 +7,9 @@
 //
 
 import Foundation
+import Moya
+import ObjectMapper
+
 
 protocol SearchModelInput: class {
     var output: SearchModelOutput? { get set }
@@ -33,6 +36,9 @@ class SearchModel: SearchModelInput {
     }
     
     private var task: URLSessionTask?
+    private var token: Cancellable?
+
+    let provider = MoyaProvider<GitService>(plugins: [NetworkLoggerPlugin(verbose: true, responseDataFormatter: Constants.JSONResponseDataFormatter)])
     
     func viewWillAppear() {
         StorageManager.shared.updateRepositorySignal.subscribePast(with: self) { [weak self](repo) in
@@ -46,7 +52,9 @@ class SearchModel: SearchModelInput {
     }
     
     func search(_ query: String) {
-        task?.cancel()
+//        task?.cancel()
+        token?.cancel()
+
         output?.didStartSearch()
         
         if query.isEmpty {
@@ -56,25 +64,57 @@ class SearchModel: SearchModelInput {
             return
         }
         StorageManager.shared.updateLastSearch(query)
+
+        let request = GitService.search(query: query)
+
+//        GitHubProvider.request(.userRepositories(username))
+//            .mapArray(Repository.self)
+//            .subscribe { event -> Void in
+//                switch event {
+//                case .next(let repos):
+//                    self.repos = repos
+//                case .error(let error):
+//                    print(error)
+//                default: break
+//                }
+//            }.addDisposableTo(disposeBag)
         
-        task = BackendManager.search(query: query) { [weak self]
-            (repositories, error) in
+        token = provider.request(request, completion: {
+            [weak self] result in
+
+            self?.output?.didFinishSearch()
             
-            guard let strongSelf = self else {
+            guard let sself = self else {
                 return
             }
-            
-            if let repositories = repositories, error == nil {
-                strongSelf.repositories = repositories
-                let _ = strongSelf.updateFeaturedRepos()
-                strongSelf.output?.resultsUpdated(isSuccess: true)
-                print("For \(query) found \(repositories.count) repositories")
-            } else {
-                strongSelf.output?.resultsUpdated(isSuccess: false)
-                print("For \(query) found nothing")
+
+            switch result {
+            case .success(let response):
+                var success = true
+                var repositories = Repositories()
+
+                do {
+                    let repos: [Repository]? = try response.mapArray(Repository.self)
+                    if let repos = repos {
+                        // Presumably, you'd parse the JSON into a model object. This is just a demo, so we'll keep it as-is.
+                        repositories = repos
+                    } else {
+                        success = false
+                    }
+                } catch {
+                    success = false
+                }
+
+
+                sself.repositories = repositories
+                let _ = sself.updateFeaturedRepos()
+                sself.output?.resultsUpdated(isSuccess: success)
+
+            case .failure(let error):
+                print(error)
             }
-            strongSelf.output?.didFinishSearch()
-        }
+        })
+
     }
     
     func getLastSearch() -> String? {

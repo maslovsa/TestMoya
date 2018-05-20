@@ -61,6 +61,18 @@
 		8F7A472B20B172540037C54A /* BackendManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7A472920B172540037C54A /* BackendManager.swift */; };
 		8F7A472D20B1740A0037C54A /* Signals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7A472C20B1740A0037C54A /* Signals.framework */; };
 		8F7A472E20B1740A0037C54A /* Signals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7A472C20B1740A0037C54A /* Signals.framework */; };
+		8F7A473020B17AFA0037C54A /* GitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7A472F20B17AFA0037C54A /* GitService.swift */; };
+		8F7A473120B17AFA0037C54A /* GitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7A472F20B17AFA0037C54A /* GitService.swift */; };
+		8F7A473A20B19F320037C54A /* ObservableType+ObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7A473520B19F320037C54A /* ObservableType+ObjectMapper.swift */; };
+		8F7A473B20B19F320037C54A /* ObservableType+ObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7A473520B19F320037C54A /* ObservableType+ObjectMapper.swift */; };
+		8F7A473C20B19F320037C54A /* Single+ObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7A473620B19F320037C54A /* Single+ObjectMapper.swift */; };
+		8F7A473D20B19F320037C54A /* Single+ObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7A473620B19F320037C54A /* Single+ObjectMapper.swift */; };
+		8F7A474020B19F320037C54A /* Response+ObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7A473920B19F320037C54A /* Response+ObjectMapper.swift */; };
+		8F7A474120B19F320037C54A /* Response+ObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7A473920B19F320037C54A /* Response+ObjectMapper.swift */; };
+		8F7A474420B19FEC0037C54A /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7A474220B19FEC0037C54A /* RxSwift.framework */; };
+		8F7A474520B19FEC0037C54A /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7A474220B19FEC0037C54A /* RxSwift.framework */; };
+		8F7A474620B19FEC0037C54A /* RxMoya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7A474320B19FEC0037C54A /* RxMoya.framework */; };
+		8F7A474720B19FEC0037C54A /* RxMoya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7A474320B19FEC0037C54A /* RxMoya.framework */; };
 		8FD8E0BF20B05CB600983BF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD8E0BE20B05CB600983BF9 /* AppDelegate.swift */; };
 		8FD8E0C620B05CB800983BF9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FD8E0C520B05CB800983BF9 /* Assets.xcassets */; };
 		8FD8E0C920B05CB800983BF9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FD8E0C720B05CB800983BF9 /* LaunchScreen.storyboard */; };
@@ -110,6 +122,12 @@
 		8F7A46FB20B170D40037C54A /* SearchTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableCell.swift; sourceTree = "<group>"; };
 		8F7A472920B172540037C54A /* BackendManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackendManager.swift; sourceTree = "<group>"; };
 		8F7A472C20B1740A0037C54A /* Signals.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Signals.framework; path = Carthage/Build/iOS/Signals.framework; sourceTree = SOURCE_ROOT; };
+		8F7A472F20B17AFA0037C54A /* GitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitService.swift; sourceTree = "<group>"; };
+		8F7A473520B19F320037C54A /* ObservableType+ObjectMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ObservableType+ObjectMapper.swift"; sourceTree = "<group>"; };
+		8F7A473620B19F320037C54A /* Single+ObjectMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Single+ObjectMapper.swift"; sourceTree = "<group>"; };
+		8F7A473920B19F320037C54A /* Response+ObjectMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Response+ObjectMapper.swift"; sourceTree = "<group>"; };
+		8F7A474220B19FEC0037C54A /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = SOURCE_ROOT; };
+		8F7A474320B19FEC0037C54A /* RxMoya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxMoya.framework; path = Carthage/Build/iOS/RxMoya.framework; sourceTree = SOURCE_ROOT; };
 		8FD8E0BB20B05CB600983BF9 /* TestMoya.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestMoya.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FD8E0BE20B05CB600983BF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8FD8E0C520B05CB800983BF9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -132,7 +150,9 @@
 			files = (
 				8FD8E0E220B0688000983BF9 /* Moya.framework in Frameworks */,
 				8FD8E0E420B0688000983BF9 /* Alamofire.framework in Frameworks */,
+				8F7A474420B19FEC0037C54A /* RxSwift.framework in Frameworks */,
 				8F7A472D20B1740A0037C54A /* Signals.framework in Frameworks */,
+				8F7A474620B19FEC0037C54A /* RxMoya.framework in Frameworks */,
 				8F7A46DA20B170460037C54A /* ObjectMapper.framework in Frameworks */,
 				8F7A46DC20B170460037C54A /* PureLayout.framework in Frameworks */,
 				8FD8E0E320B0688000983BF9 /* Result.framework in Frameworks */,
@@ -145,7 +165,9 @@
 			files = (
 				8F7A46D220B0843F0037C54A /* Result.framework in Frameworks */,
 				8F7A46D120B0843F0037C54A /* Moya.framework in Frameworks */,
+				8F7A474520B19FEC0037C54A /* RxSwift.framework in Frameworks */,
 				8F7A472E20B1740A0037C54A /* Signals.framework in Frameworks */,
+				8F7A474720B19FEC0037C54A /* RxMoya.framework in Frameworks */,
 				8F7A46DB20B170460037C54A /* ObjectMapper.framework in Frameworks */,
 				8F7A46DD20B170460037C54A /* PureLayout.framework in Frameworks */,
 				8F7A46D020B0843F0037C54A /* Alamofire.framework in Frameworks */,
@@ -159,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				8FD8E0E620B06B9F00983BF9 /* MyService.swift */,
+				8F7A472F20B17AFA0037C54A /* GitService.swift */,
 				8F7A46D620B163B30037C54A /* MoyaHelper.swift */,
 			);
 			path = Moya;
@@ -252,6 +275,32 @@
 			path = BackendService;
 			sourceTree = "<group>";
 		};
+		8F7A473220B19F320037C54A /* 3rdParty */ = {
+			isa = PBXGroup;
+			children = (
+				8F7A473320B19F320037C54A /* Moya-ObjectMapper */,
+			);
+			path = 3rdParty;
+			sourceTree = "<group>";
+		};
+		8F7A473320B19F320037C54A /* Moya-ObjectMapper */ = {
+			isa = PBXGroup;
+			children = (
+				8F7A473420B19F320037C54A /* RxSwift */,
+				8F7A473920B19F320037C54A /* Response+ObjectMapper.swift */,
+			);
+			path = "Moya-ObjectMapper";
+			sourceTree = "<group>";
+		};
+		8F7A473420B19F320037C54A /* RxSwift */ = {
+			isa = PBXGroup;
+			children = (
+				8F7A473520B19F320037C54A /* ObservableType+ObjectMapper.swift */,
+				8F7A473620B19F320037C54A /* Single+ObjectMapper.swift */,
+			);
+			path = RxSwift;
+			sourceTree = "<group>";
+		};
 		8FD8E0B220B05CB600983BF9 = {
 			isa = PBXGroup;
 			children = (
@@ -275,6 +324,7 @@
 			isa = PBXGroup;
 			children = (
 				8FD8E0BE20B05CB600983BF9 /* AppDelegate.swift */,
+				8F7A473220B19F320037C54A /* 3rdParty */,
 				8FD8E0C520B05CB800983BF9 /* Assets.xcassets */,
 				8FD8E0CA20B05CB800983BF9 /* Info.plist */,
 				8FD8E0C720B05CB800983BF9 /* LaunchScreen.storyboard */,
@@ -303,6 +353,8 @@
 		8FD8E0DE20B0680700983BF9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8F7A474320B19FEC0037C54A /* RxMoya.framework */,
+				8F7A474220B19FEC0037C54A /* RxSwift.framework */,
 				8F7A472C20B1740A0037C54A /* Signals.framework */,
 				8F7A46D820B170460037C54A /* ObjectMapper.framework */,
 				8F7A46D920B170460037C54A /* PureLayout.framework */,
@@ -422,6 +474,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/ObjectMapper.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/PureLayout.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Signals.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxMoya.framework",
 			);
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
@@ -430,6 +484,8 @@
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ObjectMapper.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PureLayout.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Signals.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxMoya.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -453,10 +509,14 @@
 				8F7A46D720B163B30037C54A /* MoyaHelper.swift in Sources */,
 				8F7A472620B170D40037C54A /* SearchTableCell.swift in Sources */,
 				8F7A471E20B170D40037C54A /* BaseDefinition.swift in Sources */,
+				8F7A473C20B19F320037C54A /* Single+ObjectMapper.swift in Sources */,
 				8F7A471820B170D40037C54A /* DetailModel.swift in Sources */,
+				8F7A473020B17AFA0037C54A /* GitService.swift in Sources */,
 				8FD8E0E720B06B9F00983BF9 /* MyService.swift in Sources */,
+				8F7A473A20B19F320037C54A /* ObservableType+ObjectMapper.swift in Sources */,
 				8FD8E0E920B06F7F00983BF9 /* QueryHelper.swift in Sources */,
 				8F7A472420B170D40037C54A /* BaseRepoTableCell.swift in Sources */,
+				8F7A474020B19F320037C54A /* Response+ObjectMapper.swift in Sources */,
 				8F7A472A20B172540037C54A /* BackendManager.swift in Sources */,
 				8F7A472220B170D40037C54A /* DetailRepoTableCell.swift in Sources */,
 				8F7A470620B170D40037C54A /* UIImage+Colorize.swift in Sources */,
@@ -475,6 +535,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F7A473120B17AFA0037C54A /* GitService.swift in Sources */,
 				8F7A472520B170D40037C54A /* BaseRepoTableCell.swift in Sources */,
 				8F7A472B20B172540037C54A /* BackendManager.swift in Sources */,
 				8F7A471B20B170D40037C54A /* RepoDefinition.swift in Sources */,
@@ -485,17 +546,20 @@
 				8F7A471720B170D40037C54A /* FeaturedVC.swift in Sources */,
 				8F7A472120B170D40037C54A /* StorageDefinition.swift in Sources */,
 				8F7A470B20B170D40037C54A /* UISearchBar+Extension.swift in Sources */,
+				8F7A474120B19F320037C54A /* Response+ObjectMapper.swift in Sources */,
 				8F7A470120B170D40037C54A /* Constants.swift in Sources */,
 				8F7A471D20B170D40037C54A /* OwnerDefinition.swift in Sources */,
 				8F7A471320B170D40037C54A /* SearchVC.swift in Sources */,
 				8F7A46CE20B07FAA0037C54A /* QueryHelperTests.swift in Sources */,
 				8F7A472720B170D40037C54A /* SearchTableCell.swift in Sources */,
 				8F7A472320B170D40037C54A /* DetailRepoTableCell.swift in Sources */,
+				8F7A473B20B19F320037C54A /* ObservableType+ObjectMapper.swift in Sources */,
 				8F7A470520B170D40037C54A /* StorageManager.swift in Sources */,
 				8F7A470F20B170D40037C54A /* FeaturedModel.swift in Sources */,
 				8F7A470720B170D40037C54A /* UIImage+Colorize.swift in Sources */,
 				8F7A470320B170D40037C54A /* UIImage+Extension.swift in Sources */,
 				8F7A471920B170D40037C54A /* DetailModel.swift in Sources */,
+				8F7A473D20B19F320037C54A /* Single+ObjectMapper.swift in Sources */,
 				8FD8E0D420B05CB800983BF9 /* TestMoyaTests.swift in Sources */,
 				8F7A471F20B170D40037C54A /* BaseDefinition.swift in Sources */,
 			);
