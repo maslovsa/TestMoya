@@ -9,6 +9,10 @@
 import Foundation
 import Moya
 
+typealias Owner = OwnerDefinition
+typealias Repository = RepoDefinition
+typealias Repositories = [Repository]
+
 enum GitService {
     case search(query: String)
     case getUserDetails(userName: String)

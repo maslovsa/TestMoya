@@ -34,7 +34,6 @@ class SearchModel: SearchModelInput {
     weak var output: SearchModelOutput?
     var repositories = Repositories() {
         didSet {
-            updateFeaturedRepos()
             output?.didUpdatedResults()
         }
     }
@@ -82,6 +81,7 @@ class SearchModel: SearchModelInput {
 
                 switch event {
                 case .next(let repositories):
+                    self?.updateFeaturedRepos()
                     self?.repositories = repositories
 
                 case .error(let error):

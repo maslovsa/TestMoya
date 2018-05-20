@@ -38,7 +38,9 @@ class StorageManager {
                 storage.featuredRepos.remove(at: index)
             }
         }
-        
+
+        storage.featuredRepos.forEach { print($0.id)}
+
         saveData()
         updateRepositorySignal => newRepo
     }

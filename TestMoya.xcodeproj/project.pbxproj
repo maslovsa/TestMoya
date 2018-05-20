@@ -58,8 +58,6 @@
 		8F7A472520B170D40037C54A /* BaseRepoTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7A46FA20B170D40037C54A /* BaseRepoTableCell.swift */; };
 		8F7A472620B170D40037C54A /* SearchTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7A46FB20B170D40037C54A /* SearchTableCell.swift */; };
 		8F7A472720B170D40037C54A /* SearchTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7A46FB20B170D40037C54A /* SearchTableCell.swift */; };
-		8F7A472A20B172540037C54A /* BackendManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7A472920B172540037C54A /* BackendManager.swift */; };
-		8F7A472B20B172540037C54A /* BackendManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7A472920B172540037C54A /* BackendManager.swift */; };
 		8F7A472D20B1740A0037C54A /* Signals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7A472C20B1740A0037C54A /* Signals.framework */; };
 		8F7A472E20B1740A0037C54A /* Signals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7A472C20B1740A0037C54A /* Signals.framework */; };
 		8F7A473020B17AFA0037C54A /* GitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7A472F20B17AFA0037C54A /* GitService.swift */; };
@@ -122,7 +120,6 @@
 		8F7A46F920B170D40037C54A /* DetailRepoTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRepoTableCell.swift; sourceTree = "<group>"; };
 		8F7A46FA20B170D40037C54A /* BaseRepoTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRepoTableCell.swift; sourceTree = "<group>"; };
 		8F7A46FB20B170D40037C54A /* SearchTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableCell.swift; sourceTree = "<group>"; };
-		8F7A472920B172540037C54A /* BackendManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackendManager.swift; sourceTree = "<group>"; };
 		8F7A472C20B1740A0037C54A /* Signals.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Signals.framework; path = Carthage/Build/iOS/Signals.framework; sourceTree = SOURCE_ROOT; };
 		8F7A472F20B17AFA0037C54A /* GitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitService.swift; sourceTree = "<group>"; };
 		8F7A473520B19F320037C54A /* ObservableType+ObjectMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ObservableType+ObjectMapper.swift"; sourceTree = "<group>"; };
@@ -273,7 +270,6 @@
 		8F7A472820B172540037C54A /* BackendService */ = {
 			isa = PBXGroup;
 			children = (
-				8F7A472920B172540037C54A /* BackendManager.swift */,
 			);
 			path = BackendService;
 			sourceTree = "<group>";
@@ -520,7 +516,6 @@
 				8FD8E0E920B06F7F00983BF9 /* QueryHelper.swift in Sources */,
 				8F7A472420B170D40037C54A /* BaseRepoTableCell.swift in Sources */,
 				8F7A474020B19F320037C54A /* Response+ObjectMapper.swift in Sources */,
-				8F7A472A20B172540037C54A /* BackendManager.swift in Sources */,
 				8F7A472220B170D40037C54A /* DetailRepoTableCell.swift in Sources */,
 				8F7A470620B170D40037C54A /* UIImage+Colorize.swift in Sources */,
 				8F7A471220B170D40037C54A /* SearchVC.swift in Sources */,
@@ -541,7 +536,6 @@
 			files = (
 				8F7A473120B17AFA0037C54A /* GitService.swift in Sources */,
 				8F7A472520B170D40037C54A /* BaseRepoTableCell.swift in Sources */,
-				8F7A472B20B172540037C54A /* BackendManager.swift in Sources */,
 				8F7A471B20B170D40037C54A /* RepoDefinition.swift in Sources */,
 				8F7A470D20B170D40037C54A /* UITableView+Extension.swift in Sources */,
 				8F7A470920B170D40037C54A /* UIViewController+Extension.swift in Sources */,

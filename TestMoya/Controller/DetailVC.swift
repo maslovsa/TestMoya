@@ -117,7 +117,7 @@ extension DetailVC: UITableViewDelegate {
 }
 
 extension DetailVC: DetailModelOutput {
-    func detailsUpdated(isSuccess: Bool) {
+    func didUpdateDetails() {
         DispatchQueue.main.async {
             self.updateContent()
         }

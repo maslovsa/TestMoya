@@ -31,7 +31,8 @@ public extension PrimitiveSequence where TraitType == SingleTrait, ElementType =
 }
 
 public extension RxSwift.ObservableType where E == Moya.ProgressResponse {
-    /
+
+    // MARK: - Task 2
     public func trackActivity(with handler: ActivityProgressHandler?) -> Observable<E>  {
         return flatMap { progressResponse -> Observable<E> in
             handler?(progressResponse.completed)
