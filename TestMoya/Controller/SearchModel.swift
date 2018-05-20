@@ -9,7 +9,10 @@
 import Foundation
 import Moya
 import ObjectMapper
+import RxMoya
+import RxSwift
 
+typealias dictionaryJSON = [String: Any]
 
 protocol SearchModelInput: class {
     var output: SearchModelOutput? { get set }
@@ -37,6 +40,7 @@ class SearchModel: SearchModelInput {
     
     private var task: URLSessionTask?
     private var token: Cancellable?
+    let disposeBag = DisposeBag()
 
     let provider = MoyaProvider<GitService>(plugins: [NetworkLoggerPlugin(verbose: true, responseDataFormatter: Constants.JSONResponseDataFormatter)])
     
@@ -52,9 +56,7 @@ class SearchModel: SearchModelInput {
     }
     
     func search(_ query: String) {
-//        task?.cancel()
         token?.cancel()
-
         output?.didStartSearch()
         
         if query.isEmpty {
@@ -65,56 +67,37 @@ class SearchModel: SearchModelInput {
         }
         StorageManager.shared.updateLastSearch(query)
 
-        let request = GitService.search(query: query)
+        provider.rx.request(GitService.search(query: query))
+            .debug()
+            .prepareArray(for: "items")
+            .mapArray(Repository.self)
+            .subscribe {
+                [weak self] event -> Void in
 
-//        GitHubProvider.request(.userRepositories(username))
-//            .mapArray(Repository.self)
-//            .subscribe { event -> Void in
-//                switch event {
-//                case .next(let repos):
-//                    self.repos = repos
-//                case .error(let error):
-//                    print(error)
-//                default: break
-//                }
-//            }.addDisposableTo(disposeBag)
-        
-        token = provider.request(request, completion: {
-            [weak self] result in
-
-            self?.output?.didFinishSearch()
-            
-            guard let sself = self else {
-                return
-            }
-
-            switch result {
-            case .success(let response):
                 var success = true
                 var repositories = Repositories()
 
-                do {
-                    let repos: [Repository]? = try response.mapArray(Repository.self)
-                    if let repos = repos {
-                        // Presumably, you'd parse the JSON into a model object. This is just a demo, so we'll keep it as-is.
-                        repositories = repos
-                    } else {
-                        success = false
-                    }
-                } catch {
-                    success = false
+                self?.output?.didFinishSearch()
+                guard let sself = self else {
+                    return
                 }
 
+                switch event {
+                case .success(let repos):
+                    repositories = repos
+                    success = true
+
+                case .error(let error):
+                    print(error)
+                    success = false
+
+                }
 
                 sself.repositories = repositories
                 let _ = sself.updateFeaturedRepos()
                 sself.output?.resultsUpdated(isSuccess: success)
-
-            case .failure(let error):
-                print(error)
             }
-        })
-
+        .disposed(by: disposeBag)
     }
     
     func getLastSearch() -> String? {
