@@ -7,14 +7,12 @@
 //
 
 import Foundation
-
-
-
+import Alamofire
 
 extension Array where Element: CustomStringConvertible {
 
-    public var params: [String: Any] {
-        return [:]
+    public var params: Alamofire.Parameters {
+        return Dictionary(grouping: self, by: { $0.description } )
     }
 
     public func composeQueue(with key: String) -> String {

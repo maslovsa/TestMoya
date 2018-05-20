@@ -17,11 +17,14 @@ enum MyService {
 }
 
 private struct Constants {
-    static let serviceUrl = URL(string: "http://api.example.com")!
+    static let serviceUrl = URL(string: "https://api.example.com")!
 }
 
 extension MyService: TargetType {
-    var baseURL: URL { return Constants.serviceUrl }
+    var baseURL: URL {
+        return Constants.serviceUrl
+
+    }
 
     var path: String {
         switch self {
@@ -31,35 +34,32 @@ extension MyService: TargetType {
             return "/locations"
         }
     }
+
     var method: Moya.Method {
          return .get
     }
+
     var task: Task {
         switch self {
         case .zen:
             return .requestPlain
         case .search(let locations):
-            return .requestParameters(parameters: ["first_name": locations[0], "last_name": locations[1]], encoding: URLEncoding.queryString)
+            return .requestParameters(parameters: locations.params, encoding: URLEncoding.queryString)
         }
     }
+
     var sampleData: Data {
         switch self {
-        case .zen, .search:
-            return "Half measures are as bad as nothing at all.".utf8Encoded
+        case .zen:
+            return "Well done".utf8Encoded
+        case .search(let locations):
+            return locations.composeQueue(with: "test").utf8Encoded
         }
     }
+
     var headers: [String: String]? {
         return ["Content-type": "application/json"]
     }
 }
 
-// MARK: - Helpers
-private extension String {
-    var urlEscaped: String {
-        return addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
-    }
 
-    var utf8Encoded: Data {
-        return data(using: .utf8)!
-    }
-}
