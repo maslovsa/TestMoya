@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F2114E720B1B621007A8E1B /* RxMoyaHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2114E620B1B621007A8E1B /* RxMoyaHelper.swift */; };
 		8F7A46CE20B07FAA0037C54A /* QueryHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7A46CD20B07FAA0037C54A /* QueryHelperTests.swift */; };
 		8F7A46D020B0843F0037C54A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FD8E0E120B0687F00983BF9 /* Alamofire.framework */; };
 		8F7A46D120B0843F0037C54A /* Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FD8E0DF20B0687F00983BF9 /* Moya.framework */; };
@@ -95,6 +96,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8F2114E620B1B621007A8E1B /* RxMoyaHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxMoyaHelper.swift; sourceTree = "<group>"; };
 		8F7A46CD20B07FAA0037C54A /* QueryHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryHelperTests.swift; sourceTree = "<group>"; };
 		8F7A46D320B15B470037C54A /* String+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Data.swift"; sourceTree = "<group>"; };
 		8F7A46D620B163B30037C54A /* MoyaHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaHelper.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				8FD8E0E620B06B9F00983BF9 /* MyService.swift */,
 				8F7A472F20B17AFA0037C54A /* GitService.swift */,
 				8F7A46D620B163B30037C54A /* MoyaHelper.swift */,
+				8F2114E620B1B621007A8E1B /* RxMoyaHelper.swift */,
 			);
 			path = Moya;
 			sourceTree = "<group>";
@@ -523,6 +526,7 @@
 				8F7A471220B170D40037C54A /* SearchVC.swift in Sources */,
 				8F7A470220B170D40037C54A /* UIImage+Extension.swift in Sources */,
 				8FD8E0BF20B05CB600983BF9 /* AppDelegate.swift in Sources */,
+				8F2114E720B1B621007A8E1B /* RxMoyaHelper.swift in Sources */,
 				8F7A470020B170D40037C54A /* Constants.swift in Sources */,
 				8F7A471420B170D40037C54A /* SearchModel.swift in Sources */,
 				8F7A470A20B170D40037C54A /* UISearchBar+Extension.swift in Sources */,

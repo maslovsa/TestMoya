@@ -9,7 +9,6 @@
 import Foundation
 import Alamofire
 import Moya
-import RxSwift
 
 public extension URLEncoding {
     public static var queryCustomString: Alamofire.URLEncoding {
@@ -23,19 +22,4 @@ public struct MoyaTaskHelper {
     }
 }
 
-public extension PrimitiveSequence where  TraitType == SingleTrait, ElementType == Response {
 
-    public func prepareArray(for keyPath: String) -> RxSwift.PrimitiveSequence<Trait, Element> {
-        return flatMap { response -> RxSwift.PrimitiveSequence<Trait, Element> in
-
-            guard let responseDict = try? response.mapJSON() as? [String: Any],
-                let owner = responseDict?[keyPath] as? [Any],
-                let newData = try? JSONSerialization.data(withJSONObject: owner, options: JSONSerialization.WritingOptions.prettyPrinted) else {
-                    return Single.just(response)
-            }
-
-            let newResponse = Response(statusCode: response.statusCode, data: newData, response: response.response)
-            return Single.just(newResponse)
-        }
-    }
-}

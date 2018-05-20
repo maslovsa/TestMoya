@@ -42,7 +42,7 @@ class SearchModel: SearchModelInput {
     private var token: Cancellable?
     let disposeBag = DisposeBag()
 
-    let provider = MoyaProvider<GitService>(plugins: [NetworkLoggerPlugin(verbose: true, responseDataFormatter: Constants.JSONResponseDataFormatter)])
+    let provider = MoyaProvider<GitService>(plugins: [NetworkLoggerPlugin(verbose: false, responseDataFormatter: Constants.JSONResponseDataFormatter)])
     
     func viewWillAppear() {
         StorageManager.shared.updateRepositorySignal.subscribePast(with: self) { [weak self](repo) in
@@ -90,7 +90,6 @@ class SearchModel: SearchModelInput {
                 case .error(let error):
                     print(error)
                     success = false
-
                 }
 
                 sself.repositories = repositories
