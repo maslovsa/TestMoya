@@ -15,3 +15,9 @@ public extension URLEncoding {
         return Alamofire.URLEncoding(destination: .queryString, arrayEncoding: .noBrackets)
     }
 }
+
+public struct MoyaTaskHelper {
+    static func task(from array: [MyPoint]) -> Task {
+        return .requestParameters(parameters: array.params, encoding: URLEncoding.queryCustomString)
+    }
+}

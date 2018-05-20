@@ -9,7 +9,7 @@
 import Foundation
 import Moya
 
-typealias MyPoint = Double
+public typealias MyPoint = Double
 
 enum MyService {
     case zen
@@ -23,7 +23,6 @@ private struct Constants {
 extension MyService: TargetType {
     var baseURL: URL {
         return Constants.serviceUrl
-
     }
 
     var path: String {
@@ -44,7 +43,7 @@ extension MyService: TargetType {
         case .zen:
             return .requestPlain
         case .search(let locations):
-            return .requestParameters(parameters: locations.params, encoding: URLEncoding.queryCustomString)
+            return MoyaTaskHelper.task(from: locations)
         }
     }
 
