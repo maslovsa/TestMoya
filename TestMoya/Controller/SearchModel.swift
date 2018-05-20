@@ -24,81 +24,73 @@ protocol SearchModelInput: class {
 }
 
 protocol SearchModelOutput: class {
-    func resultsUpdated(isSuccess: Bool)
+    func didUpdatedResults()
     func didStartSearch()
     func didFinishSearch()
 }
 
 class SearchModel: SearchModelInput {
-    
-    var repositories = Repositories()
+
     weak var output: SearchModelOutput?
-    
+    var repositories = Repositories() {
+        didSet {
+            updateFeaturedRepos()
+            output?.didUpdatedResults()
+        }
+    }
+
     var hasUserSearchResults: Bool {
         return repositories.count > 0
     }
     
-    private var task: URLSessionTask?
-    private var token: Cancellable?
-    let disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
 
     let provider = MoyaProvider<GitService>(plugins: [NetworkLoggerPlugin(verbose: false, responseDataFormatter: Constants.JSONResponseDataFormatter)])
     
     func viewWillAppear() {
-        StorageManager.shared.updateRepositorySignal.subscribePast(with: self) { [weak self](repo) in
-            guard let strongSelf = self else {
-                return
-            }
-            if strongSelf.updateFeaturedRepos() {
-                strongSelf.output?.resultsUpdated(isSuccess: false)
+        StorageManager.shared.updateRepositorySignal.subscribePast(with: self) {
+            [weak self] repo in
+            if let strongSelf = self, strongSelf.updateFeaturedRepos() {
+                strongSelf.output?.didUpdatedResults()
             }
             }.onQueue(DispatchQueue.main)
     }
     
     func search(_ query: String) {
-        token?.cancel()
+
         output?.didStartSearch()
         
         if query.isEmpty {
             repositories = Repositories()
-            output?.resultsUpdated(isSuccess: false)
             output?.didFinishSearch()
             return
         }
         StorageManager.shared.updateLastSearch(query)
 
         provider.rx.requestWithProgress(GitService.search(query: query))
+            .trackActivity(with: {
+                [weak self] completed in
+                if completed {
+                    self?.output?.didFinishSearch()
+                }
+            })
             .debug()
             .prepareResponse(for: "items")
             .mapArray(Repository.self)
             .subscribe {
                 [weak self] event -> Void in
 
-                var success = true
-                var repositories = Repositories()
-
-                self?.output?.didFinishSearch()
-                guard let sself = self else {
-                    return
-                }
-
                 switch event {
-                case .next(let repo):
-                    repositories = repo
-                    success = true
+                case .next(let repositories):
+                    self?.repositories = repositories
 
                 case .error(let error):
                     print(error)
-                    success = false
 
                 case .completed:
-
-                    success = false
+                    break
                 }
 
-                sself.repositories = repositories
-                let _ = sself.updateFeaturedRepos()
-                sself.output?.resultsUpdated(isSuccess: success)
             }
         .disposed(by: disposeBag)
     }
@@ -106,17 +98,21 @@ class SearchModel: SearchModelInput {
     func getLastSearch() -> String? {
         return StorageManager.shared.storage.lastSearch
     }
-    
+
+    @discardableResult
     private func updateFeaturedRepos() -> Bool {
         var hasUpdates = false
-        repositories = repositories.map { repo in
-            if StorageManager.shared.isRepoFeatured(repo) {
-                repo.isFeatured = true
+        let repositoriesNew = repositories.map {
+            repository -> Repository in
+            if StorageManager.shared.isRepoFeatured(repository) {
+                repository.isFeatured = true
                 hasUpdates = true
             }
-            return repo
+            return repository
         }
-        
+        if hasUpdates {
+            repositories = repositoriesNew
+        }
         return hasUpdates
     }
     

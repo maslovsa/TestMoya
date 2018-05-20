@@ -195,7 +195,7 @@ extension SearchVC: UITableViewDelegate {
 }
 
 extension SearchVC: SearchModelOutput {
-    func resultsUpdated(isSuccess: Bool) {
+    func didUpdatedResults() {
         DispatchQueue.main.async {
             self.updateContent()
         }
