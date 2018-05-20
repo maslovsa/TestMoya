@@ -12,6 +12,7 @@
 		8F7A46D120B0843F0037C54A /* Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FD8E0DF20B0687F00983BF9 /* Moya.framework */; };
 		8F7A46D220B0843F0037C54A /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FD8E0E020B0687F00983BF9 /* Result.framework */; };
 		8F7A46D420B15B470037C54A /* String+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7A46D320B15B470037C54A /* String+Data.swift */; };
+		8F7A46D720B163B30037C54A /* MoyaHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7A46D620B163B30037C54A /* MoyaHelper.swift */; };
 		8FD8E0BF20B05CB600983BF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD8E0BE20B05CB600983BF9 /* AppDelegate.swift */; };
 		8FD8E0C120B05CB600983BF9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD8E0C020B05CB600983BF9 /* ViewController.swift */; };
 		8FD8E0C420B05CB600983BF9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FD8E0C220B05CB600983BF9 /* Main.storyboard */; };
@@ -22,7 +23,7 @@
 		8FD8E0E320B0688000983BF9 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FD8E0E020B0687F00983BF9 /* Result.framework */; };
 		8FD8E0E420B0688000983BF9 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FD8E0E120B0687F00983BF9 /* Alamofire.framework */; };
 		8FD8E0E720B06B9F00983BF9 /* MyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD8E0E620B06B9F00983BF9 /* MyService.swift */; };
-		8FD8E0E920B06F7F00983BF9 /* QueueHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD8E0E820B06F7F00983BF9 /* QueueHelper.swift */; };
+		8FD8E0E920B06F7F00983BF9 /* QueryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD8E0E820B06F7F00983BF9 /* QueryHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		8F7A46CD20B07FAA0037C54A /* QueryHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryHelperTests.swift; sourceTree = "<group>"; };
 		8F7A46D320B15B470037C54A /* String+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Data.swift"; sourceTree = "<group>"; };
+		8F7A46D620B163B30037C54A /* MoyaHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaHelper.swift; sourceTree = "<group>"; };
 		8FD8E0BB20B05CB600983BF9 /* TestMoya.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestMoya.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FD8E0BE20B05CB600983BF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8FD8E0C020B05CB600983BF9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -52,7 +54,7 @@
 		8FD8E0E020B0687F00983BF9 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = SOURCE_ROOT; };
 		8FD8E0E120B0687F00983BF9 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = SOURCE_ROOT; };
 		8FD8E0E620B06B9F00983BF9 /* MyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyService.swift; sourceTree = "<group>"; };
-		8FD8E0E820B06F7F00983BF9 /* QueueHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueHelper.swift; sourceTree = "<group>"; };
+		8FD8E0E820B06F7F00983BF9 /* QueryHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				8FD8E0E620B06B9F00983BF9 /* MyService.swift */,
+				8F7A46D620B163B30037C54A /* MoyaHelper.swift */,
 			);
 			path = Moya;
 			sourceTree = "<group>";
@@ -90,7 +93,7 @@
 		8F7A46D520B15B4F0037C54A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				8FD8E0E820B06F7F00983BF9 /* QueueHelper.swift */,
+				8FD8E0E820B06F7F00983BF9 /* QueryHelper.swift */,
 				8F7A46D320B15B470037C54A /* String+Data.swift */,
 			);
 			path = Extensions;
@@ -275,8 +278,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F7A46D420B15B470037C54A /* String+Data.swift in Sources */,
+				8F7A46D720B163B30037C54A /* MoyaHelper.swift in Sources */,
 				8FD8E0E720B06B9F00983BF9 /* MyService.swift in Sources */,
-				8FD8E0E920B06F7F00983BF9 /* QueueHelper.swift in Sources */,
+				8FD8E0E920B06F7F00983BF9 /* QueryHelper.swift in Sources */,
 				8FD8E0C120B05CB600983BF9 /* ViewController.swift in Sources */,
 				8FD8E0BF20B05CB600983BF9 /* AppDelegate.swift in Sources */,
 			);

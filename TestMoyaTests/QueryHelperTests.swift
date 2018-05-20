@@ -22,7 +22,7 @@ class QueryHelperTests: XCTestCase {
     
     func testExample() {
         let array = [1.1, 2.2, 3.3]
-        XCTAssertEqual("points=1.1&points=2.2&points=3.3", array.composeQueue(with: "abba"))
+        XCTAssertEqual("abba=1.1&abba=2.2&abba=3.3", array.composeQuery(with: "abba"))
     }
     
 }

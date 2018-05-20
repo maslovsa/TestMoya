@@ -44,7 +44,7 @@ extension MyService: TargetType {
         case .zen:
             return .requestPlain
         case .search(let locations):
-            return .requestParameters(parameters: locations.params, encoding: URLEncoding.queryString)
+            return .requestParameters(parameters: locations.params, encoding: URLEncoding.queryCustomString)
         }
     }
 
@@ -53,7 +53,7 @@ extension MyService: TargetType {
         case .zen:
             return "Well done".utf8Encoded
         case .search(let locations):
-            return locations.composeQueue(with: "test").utf8Encoded
+            return locations.composeQuery(with: "test").utf8Encoded
         }
     }
 
@@ -61,5 +61,3 @@ extension MyService: TargetType {
         return ["Content-type": "application/json"]
     }
 }
-
-

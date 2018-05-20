@@ -1,5 +1,5 @@
 //
-//  QueueHelper.swift
+//  QueryHelper.swift
 //  TestMoya
 //
 //  Created by Sergey Maslov on 19.05.2018.
@@ -15,7 +15,7 @@ extension Array where Element: CustomStringConvertible {
         return Dictionary(grouping: self, by: { $0.description } )
     }
 
-    public func composeQueue(with key: String) -> String {
+    public func composeQuery(with key: String) -> String {
         var result = ""
         result = self.reduce(result, { $0 + "&" + "\(key)=\($1.description)" })
         if let index = result.index(of: "&") {
