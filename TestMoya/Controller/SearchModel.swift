@@ -67,9 +67,9 @@ class SearchModel: SearchModelInput {
         }
         StorageManager.shared.updateLastSearch(query)
 
-        provider.rx.request(GitService.search(query: query))
+        provider.rx.requestWithProgress(GitService.search(query: query))
             .debug()
-            .prepareArray(for: "items")
+            .prepareResponse(for: "items")
             .mapArray(Repository.self)
             .subscribe {
                 [weak self] event -> Void in
@@ -83,12 +83,16 @@ class SearchModel: SearchModelInput {
                 }
 
                 switch event {
-                case .success(let repos):
-                    repositories = repos
+                case .next(let repo):
+                    repositories = repo
                     success = true
 
                 case .error(let error):
                     print(error)
+                    success = false
+
+                case .completed:
+
                     success = false
                 }
 

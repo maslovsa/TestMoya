@@ -11,7 +11,9 @@ import Alamofire
 import RxSwift
 import Moya
 
-public extension PrimitiveSequence where  TraitType == SingleTrait, ElementType == Response {
+public typealias ActivityProgressHandler = (Bool) -> Void
+
+public extension PrimitiveSequence where TraitType == SingleTrait, ElementType == Response {
 
     public func prepareArray(for keyPath: String) -> RxSwift.PrimitiveSequence<Trait, Element> {
         return flatMap { response -> RxSwift.PrimitiveSequence<Trait, Element> in
@@ -24,6 +26,34 @@ public extension PrimitiveSequence where  TraitType == SingleTrait, ElementType 
 
             let newResponse = Response(statusCode: response.statusCode, data: newData, response: response.response)
             return Single.just(newResponse)
+        }
+    }
+}
+
+public extension RxSwift.ObservableType where E == Moya.ProgressResponse {
+
+    public func trackActivity(with handler: ActivityProgressHandler?) -> Observable<E>  {
+        return flatMap { progressResponse -> Observable<E> in
+            handler?(progressResponse.completed)
+            return Observable.just(progressResponse)
+        }
+    }
+
+    public func prepareResponse(for keyPath: String) -> RxSwift.Observable<Moya.Response>  {
+        return flatMap { progressResponse -> Observable<Moya.Response> in
+
+            print(progressResponse.progress, progressResponse.completed)
+
+            guard progressResponse.completed,
+                let response = progressResponse.response,
+                let responseDict = try? response.mapJSON() as? [String: Any],
+                let owner = responseDict?[keyPath] as? [Any],
+                let newData = try? JSONSerialization.data(withJSONObject: owner, options: JSONSerialization.WritingOptions.prettyPrinted) else {
+                    return Observable.never()
+            }
+
+            let newResponse = Response(statusCode: response.statusCode, data: newData, response: response.response)
+            return Observable.just(newResponse)
         }
     }
 }
