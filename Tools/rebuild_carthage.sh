@@ -1,1 +1,1 @@
-carthage build --platform iOS --cache-builds
+carthage build "$@" --platform iOS --cache-builds

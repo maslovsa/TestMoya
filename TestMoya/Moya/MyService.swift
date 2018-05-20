@@ -9,6 +9,7 @@
 import Foundation
 import Moya
 
+// MARK: - Task: 1
 public typealias MyPoint = Double
 
 enum MyService {
@@ -16,13 +17,10 @@ enum MyService {
     case search(locations: [MyPoint])
 }
 
-private struct Constants {
-    static let serviceUrl = URL(string: "https://api.example.com")!
-}
-
 extension MyService: TargetType {
+
     var baseURL: URL {
-        return Constants.serviceUrl
+        return URL(string: "https://api.example.com")!
     }
 
     var path: String {

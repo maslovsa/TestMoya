@@ -1,3 +1,4 @@
 github "Moya/Moya"
 github "PureLayout/PureLayout"
 github "Hearst-DD/ObjectMapper" ~> 3.0
+github "artman/Signals" ~> 5.0
