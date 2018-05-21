@@ -1,6 +1,6 @@
-# Gittik
+# TestMoya
 
-Main idea of the Gittik:
+Main idea of the TestMoya:
 - Search Git repos.
 - Load author details.
 - Feature some repos.
