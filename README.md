@@ -4,7 +4,7 @@ Main idea of the Gittik:
 - Search Git repos.
 - Load author details.
 - Feature some repos.
-- Store locally: last serach and fetured repos.
+- Store locally: last search and featured repos.
 
 
 ## Getting Started
@@ -18,7 +18,7 @@ Here is the code example of using:
 - All UI implemented in code using PureLayout.
 
 ## Installing
-All dependencies are included to Git repo. 
+All dependencies are included to Git repo.
 (I know that it's not a good idea - but I used it)
 
 If projects doesn't compile - just run
